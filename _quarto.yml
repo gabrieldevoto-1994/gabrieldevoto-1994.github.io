@@ -3,6 +3,7 @@ project:
   resources:
     - files/Devoto_CV.pdf
     - files/share-card.png
+    - CNAME
 
 website:
   title: "Gabriel Devoto"
