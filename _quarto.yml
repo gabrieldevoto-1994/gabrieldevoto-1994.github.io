@@ -12,13 +12,7 @@ website:
   twitter-card: true
   favicon: files/favicon.png
   search: false
-  navbar:
-    toggle-position: right
-    right:
-      - text: Research
-        href: index.qmd#research
-      - text: CV
-        href: files/Devoto_CV.pdf
+  navbar: true
   page-footer:
     center: "The views expressed herein are my own and do not necessarily reflect those of the IMF, its Executive Board, or its management."
 
