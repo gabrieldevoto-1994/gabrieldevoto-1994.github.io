@@ -1,0 +1,32 @@
+project:
+  type: website
+  resources:
+    - files/Devoto_CV.pdf
+    - files/share-card.png
+
+website:
+  title: "Gabriel Devoto"
+  site-url: https://gabrieldevoto.com
+  open-graph: true
+  twitter-card: true
+  favicon: files/favicon.png
+  search: false
+  navbar:
+    toggle-position: right
+    right:
+      - text: Research
+        href: index.qmd#research
+      - text: CV
+        href: files/Devoto_CV.pdf
+  page-footer:
+    center: "The views expressed herein are my own and do not necessarily reflect those of the IMF, its Executive Board, or its management."
+
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]
+      dark: [cosmo, custom.scss, dark.scss]
+    respect-user-color-scheme: true
+    include-after-body: email-tooltip.html
+    page-layout: article
+    anchor-sections: false

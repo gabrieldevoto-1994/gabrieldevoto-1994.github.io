@@ -1,0 +1,228 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap');
+$font-family-sans-serif: "Source Serif 4", Georgia, serif;
+$font-size-base: 1.0625rem;
+$line-height-base: 1.65;
+$headings-font-weight: 600;
+$grid-body-width: 780px;
+
+// Colors (light mode). dark.scss overrides these for dark mode.
+$primary: #19325F !default;
+$link-color: $primary !default;
+$body-color: #222222 !default;
+$body-bg: #ffffff !default;
+$headings-color: $primary !default;
+$navbar-bg: $body-bg !default;
+$navbar-fg: $primary !default;
+$navbar-hl: $primary !default;
+$footer-bg: $body-bg !default;
+$footer-fg: #6b7280 !default;
+
+$gd-rule: #e3e7ee !default;          // hairlines: navbar, section, footer
+$gd-muted: #6b7280 !default;         // footer text
+$gd-abstract: #333333 !default;      // abstract text
+$gd-tag-bg: #e8edf5 !default;        // "New draft" pill
+$gd-ring: rgba(25, 50, 95, 0.28) !default;  // thin ring around the photo
+$gd-button-border: rgba(25, 50, 95, 0.35) !default;
+$gd-button-hover-fg: #ffffff !default;
+
+/*-- scss:rules --*/
+
+// Navbar: plain background, name left, links right, hairline border
+.navbar {
+  border-bottom: 1px solid $gd-rule;
+  box-shadow: none;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+.navbar-brand .navbar-title {
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+}
+.navbar .nav-link {
+  font-size: 0.98rem;
+  opacity: 0.8;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  opacity: 1;
+}
+// Dark-mode switch with a text label, styled like the other nav links
+.quarto-color-scheme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: 0.5rem;
+  color: $navbar-fg;
+  font-size: 0.98rem;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.quarto-color-scheme-toggle::before {
+  content: "Dark mode";
+}
+.quarto-color-scheme-toggle .bi::before {
+  width: 1.4rem;
+  height: 1.4rem;
+  background-size: 1.4rem 1.4rem;
+  vertical-align: middle;
+}
+.quarto-color-scheme-toggle:hover {
+  color: $navbar-fg;
+  opacity: 1;
+}
+
+// Page titles and section headings
+h1.title {
+  font-size: 2.1rem;
+  margin-bottom: 0.25rem;
+}
+#title-block-header {
+  margin-bottom: 1.5rem;
+}
+.quarto-title p.subtitle {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: $gd-muted;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+}
+// The page description is for search engines and link previews only
+#title-block-header .description {
+  display: none;
+}
+h2 {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid $gd-rule;
+}
+
+// Papers
+h3 {
+  font-size: 1.12rem;
+  line-height: 1.4;
+  margin-top: 2.1rem;
+  margin-bottom: 0.25rem;
+}
+h3 a {
+  color: $primary;
+  font-weight: 600;
+  text-decoration: none;
+}
+h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+details { margin: 0.3rem 0 1.5rem; }
+details > summary { cursor: pointer; color: $primary; font-size: 0.95rem; }
+details > p {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: $gd-abstract;
+  margin-top: 0.6rem;
+}
+.tag { font-size: 0.7rem; vertical-align: middle; background: $gd-tag-bg;
+       color: $primary; padding: 0.15rem 0.55rem; border-radius: 1rem;
+       font-weight: 600; letter-spacing: 0.03em; margin-left: 0.35rem;
+       white-space: nowrap; }
+
+// Home (trestles about block)
+div.quarto-about-trestles {
+  margin-top: 0;
+  padding-top: 1.5rem !important;
+  padding-bottom: 0;
+}
+#research {
+  margin-top: 3rem;
+  scroll-margin-top: 5rem;
+}
+#research > h2 {
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+div.quarto-about-trestles .about-entity .about-image {
+  box-shadow: 0 0 0 5px $body-bg, 0 0 0 6px $gd-ring;
+}
+div.quarto-about-trestles .about-contents {
+  border-left: none;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+}
+div.quarto-about-trestles .about-contents p {
+  font-size: 1.07rem;
+  margin-bottom: 0.9rem;
+}
+div.quarto-about-trestles .about-entity .about-links {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0.5rem;
+  width: auto;
+}
+div.quarto-about-trestles .about-entity .about-link {
+  color: $primary;
+  border: 1px solid $gd-button-border;
+  border-radius: 2rem;
+  font-size: 0.88rem;
+  padding: 0.3rem 0.8rem;
+  margin: 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+div.quarto-about-trestles .about-entity .about-link:hover {
+  background-color: $primary;
+  border-color: $primary;
+  color: $gd-button-hover-fg;
+}
+
+// Footer disclaimer: small and gray
+.nav-footer {
+  border-top: 1px solid $gd-rule;
+  font-size: 0.8rem;
+  color: $gd-muted;
+  line-height: 1.5;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+}
+.nav-footer-left,
+.nav-footer-right {
+  display: none;
+}
+.nav-footer .nav-footer-center {
+  font-size: 1em;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+// Collapsed navbar (tablet/phone): keep name, switch and menu on one line
+@media (max-width: 991.98px) {
+  .navbar > .container-fluid {
+    flex-wrap: nowrap;
+  }
+  .quarto-color-scheme-toggle::before {
+    content: "Dark";
+  }
+  .quarto-color-scheme-toggle {
+    margin-left: 0;
+    font-size: 0.9rem;
+  }
+}
+
+// Mobile: the trestles column stacks the photo above the text
+@media (max-width: 767.98px) {
+  div.quarto-about-trestles .about-contents {
+    padding-left: 0;
+    padding-top: 0;
+  }
+  h1.title {
+    font-size: 1.85rem;
+  }
+}

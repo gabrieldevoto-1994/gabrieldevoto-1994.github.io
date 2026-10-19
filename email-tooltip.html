@@ -1,0 +1,6 @@
+<script>
+  // Show the email address on hover, for visitors without a mail app
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+    a.title = a.getAttribute('href').replace('mailto:', '');
+  });
+</script>
