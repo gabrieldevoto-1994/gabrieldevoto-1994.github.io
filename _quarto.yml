@@ -1,5 +1,7 @@
 project:
   type: website
+  render:
+    - index.qmd
   resources:
     - files/Devoto_CV.pdf
     - files/share-card.png

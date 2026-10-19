@@ -86,7 +86,7 @@ h1.title {
   font-weight: 400;
   color: $gd-muted;
   letter-spacing: 0.01em;
-  white-space: nowrap;
+  white-space: nowrap;  // desktop: one line (the column widens to fit); phones: see media query
   margin-top: 0.2rem;
   margin-bottom: 0;
 }
@@ -138,11 +138,12 @@ div.quarto-about-trestles {
   padding-top: 1.5rem !important;
   padding-bottom: 0;
 }
-#research {
+// Page sections (Working Papers and any section added later)
+section.level2 {
   margin-top: 3rem;
   scroll-margin-top: 5rem;
 }
-#research > h2 {
+section.level2 > h2 {
   font-size: 0.92rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -159,12 +160,14 @@ div.quarto-about-trestles .about-contents p {
   font-size: 1.07rem;
   margin-bottom: 0.9rem;
 }
+// Buttons sit on one row and wrap (centered) only if they don't fit
 div.quarto-about-trestles .about-entity .about-links {
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
   width: auto;
+  max-width: 100%;
 }
 div.quarto-about-trestles .about-entity .about-link {
   color: $primary;
@@ -218,6 +221,14 @@ div.quarto-about-trestles .about-entity .about-link:hover {
 
 // Mobile: the trestles column stacks the photo above the text
 @media (max-width: 767.98px) {
+  div.quarto-about-trestles .about-entity {
+    padding-right: 0;
+  }
+  // One line when it fits the phone screen; otherwise two even lines
+  .quarto-title p.subtitle {
+    white-space: normal;
+    text-wrap: balance;
+  }
   div.quarto-about-trestles .about-contents {
     padding-left: 0;
     padding-top: 0;
