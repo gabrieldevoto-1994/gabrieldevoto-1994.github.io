@@ -17,7 +17,7 @@ about:
   links:
     - icon: file-earmark-pdf
       text: CV
-      href: files/Devoto_CV.pdf
+      href: https://drive.google.com/file/d/1ITRUISHNsR6_dMEcmKFob0rOaQEbSHuO/view?usp=drive_link
     - icon: envelope
       text: Email
       href: mailto:gdevoto@imf.org

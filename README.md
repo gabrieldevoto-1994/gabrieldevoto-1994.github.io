@@ -32,7 +32,7 @@ The live site updates within a few minutes. Press Ctrl+F5 if your browser shows 
 
 ### Replace the CV
 
-Overwrite `files/Devoto_CV.pdf` with the new file (keep that exact name), then publish.
+The CV button links to the CV on Google Drive. Easiest: in Drive, right-click the CV file → "Manage versions" → upload the new PDF; the link stays the same. Also overwrite `files/Devoto_CV.pdf` with the new file (keep that exact name) so the old address shows the current CV, then publish. If you use a new Drive file instead, give Claude the new link.
 
 ### Add a new paper
 

@@ -21,7 +21,7 @@ This folder is the source of Gabriel Devoto's academic website, **https://gabrie
 | `custom.scss` | Fonts, layout, spacing, **light-mode colors** (variables at the top) |
 | `dark.scss` | **Dark-mode colors** (overrides the same variables) |
 | `email-tooltip.html` | Small script: shows the email address on hover over the Email button |
-| `files/Devoto_CV.pdf` | The CV (button under the name links here) |
+| `files/Devoto_CV.pdf` | Copy of the current CV, kept so the old URL still works (the CV button now links to Google Drive; see "Replace the CV") |
 | `files/photo.jpg` | Portrait, 800×800 square, shown in a circle |
 | `files/favicon.png` | Browser-tab icon: navy square, white serif "GD" |
 | `files/share-card.png` | 1200×630 image shown when the link is shared (LinkedIn, Slack…); rebuild with `python tools/make_share_card.py` |
@@ -123,7 +123,10 @@ Three buttons fit on one row on a phone. A 4th (or more) automatically wraps to 
 The Email button is `mailto:gdevoto@imf.org` (his work email, which he wants public). On a computer without a default mail app, clicking it does nothing; that's normal, and hovering shows the address.
 
 ### Replace the CV
-Overwrite `files/Devoto_CV.pdf` (same exact name), render, publish. Gabriel may hand you a file with a different name (e.g. `Gabriel Devoto CV.pdf`): copy it to that path.
+Since Nov 2026 the CV button links to a **Google Drive file** (the `href` under `text: CV` in `index.qmd`). The CV source is `../cv_source/Devoto_CV.tex` (see `../CLAUDE.md`).
+- If Gabriel gives a **new Drive link**: put it in that `href`.
+- If he updated the **same Drive file** (Drive's "Manage versions" → upload new version), the link doesn't change and the website needs no edit.
+- Either way, also overwrite `files/Devoto_CV.pdf` with the new PDF (same exact name), so the old URL `gabrieldevoto.com/files/Devoto_CV.pdf` (bookmarks, search engines) never serves an outdated CV. Then render and publish.
 
 ### Change the photo
 Crop to a square around head and shoulders (the face in the upper-middle; leave some shoulders so the circle doesn't cut the chin), resize to 800×800, save as `files/photo.jpg` (JPEG quality ~85). Then run `python tools/make_share_card.py` to rebuild the link-preview card. The originals are high-resolution headshots in the parent `WEBSITE` folder (`100424_UM_Econ_Headshots_59.jpg` = green leafy background, `_62.jpg` = warm tree/brick background, currently used).
@@ -155,4 +158,4 @@ Create e.g. `teaching.qmd`, **add it to `project: render:`** in `_quarto.yml` (o
 - Repo: https://github.com/gabrieldevoto-1994/gabrieldevoto-1994.github.io. `master` = source, `gh-pages` = built site (written by `quarto publish`). GitHub Pages serves `gh-pages` with custom domain `gabrieldevoto.com` and **Enforce HTTPS** on.
 - Domain registrar and DNS: **GoDaddy**. Records: 4 × A `@` → `185.199.108.153`, `.109.153`, `.110.153`, `.111.153`; 4 × AAAA `@` → `2606:50c0:8000::153` … `8003::153`; CNAME `www` → `gabrieldevoto-1994.github.io`; TXT `_github-pages-challenge-gabrieldevoto-1994` (domain verification, keep forever); TXT `google-site-verification=…` (keep). No email (MX) on the domain.
 - This network blocks outside DNS resolvers (8.8.8.8, DNS-over-HTTPS). To inspect DNS, query GoDaddy directly: PowerShell `Resolve-DnsName gabrieldevoto.com -Type A -Server ns63.domaincontrol.com`.
-- Harmless quirks: git's "LF will be replaced by CRLF" warnings; the CV button's link renders as `/files/Devoto_CV.pdf` (root-absolute, from the about template), which works online and on the local server but not when opening `index.html` straight from disk.
+- Harmless quirks: git's "LF will be replaced by CRLF" warnings. (If a button ever links to a local file again, the about template renders it root-absolute, e.g. `/files/Devoto_CV.pdf`: works online and on the local server, not when opening `index.html` straight from disk.)
